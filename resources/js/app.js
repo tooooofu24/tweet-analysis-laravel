@@ -1,6 +1,6 @@
 // axios
-window.axios = require('axios');
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 // components
 import MainView from './MainView.vue';
@@ -22,7 +22,6 @@ import "@fortawesome/fontawesome-free/js/solid";
 import "@fortawesome/fontawesome-free/js/regular";
 
 import { createApp } from 'vue';
-import axios from 'axios';
 
 const app = createApp({
     components: {
@@ -32,4 +31,5 @@ const app = createApp({
 
 app.mount('#app');
 app.use(PrimeVue);
+app.use(VueAxios, axios)
 app.directive('badge', BadgeDirective);

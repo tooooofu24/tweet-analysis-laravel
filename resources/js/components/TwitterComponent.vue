@@ -2,10 +2,7 @@
 </script>
 <template>
   <div>
-    <TwitterFormComponent
-      :username="username"
-      :searchWords="searchWords"
-    ></TwitterFormComponent>
+    <TwitterFormComponent></TwitterFormComponent>
     <TwitterResultComponent></TwitterResultComponent>
   </div>
 </template>
@@ -19,7 +16,16 @@ export default {
       searchWords: ["…", "。。", "、、", "・・", "明日"],
     };
   },
-  methods: {},
+  methods: {
+    analyzeByTwitter() {
+      this.axios
+        .get("/api/twitter/profile/id")
+        .then((response) => {
+          console.log(response.data);
+        })
+        .chatch((response) => {});
+    },
+  },
   components: {
     TwitterFormComponent,
     TwitterResultComponent,
