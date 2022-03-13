@@ -24743,13 +24743,23 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       username: "mcgardman",
-      searchWords: ["…", "。。", "、、", "・・", "明日"]
+      searchWords: ["…", "。。", "、、", "・・", "明日"],
+      userData: {},
+      tweets: []
     };
   },
   methods: {
     analyzeByTwitter: function analyzeByTwitter() {
       this.axios.get("/api/twitter/profile/" + this.username).then(function (response) {
         console.log(response.data);
+      });
+    },
+    getId: function getId() {
+      var _this = this;
+
+      this.axios.get("/api/twitter/profile/" + this.username).then(function (response) {
+        console.log(response.data);
+        _this.userData = response.data;
       });
     }
   },

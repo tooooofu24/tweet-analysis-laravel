@@ -15,6 +15,8 @@ export default {
     return {
       username: "mcgardman",
       searchWords: ["…", "。。", "、、", "・・", "明日"],
+      userData: {},
+      tweets: [],
     };
   },
   methods: {
@@ -23,6 +25,14 @@ export default {
         .get("/api/twitter/profile/" + this.username)
         .then((response) => {
           console.log(response.data);
+        });
+    },
+    getId() {
+      this.axios
+        .get("/api/twitter/profile/" + this.username)
+        .then((response) => {
+          console.log(response.data);
+          this.userData = response.data;
         });
     },
   },

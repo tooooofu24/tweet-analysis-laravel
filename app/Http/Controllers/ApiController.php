@@ -2,17 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\Twitter;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
     public function getProfile($username)
     {
-        return env('TWITTER_API_TOKEN');
+        $twitter = new Twitter;
+        $twitter->getProfile($username);
+        if (!$twitter->isValid) {
+            abort(404);
+        }
+        return $twitter->response;
     }
 
     public function getTweets($id)
     {
-        return "a";
+        $twitter = new Twitter;
+        $twitter->getTweets($id);
+        if (!$twitter->isValid) {
+            abort(404);
+        }
+        return $twitter->response;
     }
 }
