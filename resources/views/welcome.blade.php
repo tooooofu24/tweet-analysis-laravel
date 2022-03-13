@@ -12,14 +12,11 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Google Material Icon -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
-        <example-component></example-component>
+        <main-view></main-view>
     </div>
 
     <!-- Scripts -->
