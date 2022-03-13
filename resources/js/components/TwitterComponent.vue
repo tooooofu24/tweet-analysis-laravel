@@ -9,6 +9,7 @@
 <script>
 import TwitterFormComponent from "./TwitterFormComponent.vue";
 import TwitterResultComponent from "./TwitterResultComponent.vue";
+
 export default {
   data() {
     return {
@@ -19,11 +20,10 @@ export default {
   methods: {
     analyzeByTwitter() {
       this.axios
-        .get("/api/twitter/profile/id")
+        .get("/api/twitter/profile/" + this.username)
         .then((response) => {
           console.log(response.data);
-        })
-        .chatch((response) => {});
+        });
     },
   },
   components: {

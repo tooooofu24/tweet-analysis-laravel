@@ -24748,9 +24748,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     analyzeByTwitter: function analyzeByTwitter() {
-      this.axios.get("/api/twitter/profile/id").then(function (response) {
+      this.axios.get("/api/twitter/profile/" + this.username).then(function (response) {
         console.log(response.data);
-      }).chatch(function (response) {});
+      });
     }
   },
   components: {
