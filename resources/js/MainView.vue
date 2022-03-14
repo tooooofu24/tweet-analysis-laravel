@@ -7,7 +7,7 @@ import TabPanel from "primevue/tabpanel";
 <template>
   <div>
     <NavbarComponent></NavbarComponent>
-    <main class="p-3">
+    <main class="col-12 md:col-10 lg:col-8 xl:col-6 mx-auto p-0">
       <TabView>
         <TabPanel>
           <template #header>

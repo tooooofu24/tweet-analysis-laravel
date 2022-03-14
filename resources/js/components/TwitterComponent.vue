@@ -11,7 +11,7 @@ import TwitterResultComponent from "./TwitterResultComponent.vue";
 export default {
   data() {
     return {
-      username: "",
+      username: "ms2n_xxx",
       searchWords: ["…", "。。", "、、", "・・"],
       userData: {
         name: "",

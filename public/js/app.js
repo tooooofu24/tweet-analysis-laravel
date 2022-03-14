@@ -23054,7 +23054,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      username: "",
+      username: "ms2n_xxx",
       searchWords: ["…", "。。", "、、", "・・"],
       userData: {
         name: "",
@@ -23173,6 +23173,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primevue_panel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primevue/panel */ "./node_modules/primevue/panel/panel.esm.js");
 /* harmony import */ var primevue_chip__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primevue/chip */ "./node_modules/primevue/chip/chip.esm.js");
 /* harmony import */ var primevue_badge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primevue/badge */ "./node_modules/primevue/badge/badge.esm.js");
+/* harmony import */ var primevue_divider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primevue/divider */ "./node_modules/primevue/divider/divider.esm.js");
+/* harmony import */ var primevue_skeleton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primevue/skeleton */ "./node_modules/primevue/skeleton/skeleton.esm.js");
+
+
 
 
 
@@ -23183,7 +23187,9 @@ __webpack_require__.r(__webpack_exports__);
     var __returned__ = {
       Panel: primevue_panel__WEBPACK_IMPORTED_MODULE_0__["default"],
       Chip: primevue_chip__WEBPACK_IMPORTED_MODULE_1__["default"],
-      Badge: primevue_badge__WEBPACK_IMPORTED_MODULE_2__["default"]
+      Badge: primevue_badge__WEBPACK_IMPORTED_MODULE_2__["default"],
+      Divider: primevue_divider__WEBPACK_IMPORTED_MODULE_3__["default"],
+      Skeleton: primevue_skeleton__WEBPACK_IMPORTED_MODULE_4__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23209,7 +23215,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "p-3"
+  "class": "col-12 md:col-10 lg:col-8 xl:col-6 mx-auto p-0"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -23350,40 +23356,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "class": "p-inputgroup mb-2"
-};
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "p-inputgroup-addon"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "pi pi-search mr-2"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 検索ワード ")], -1
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "検索ワード", -1
 /* HOISTED */
 );
 
-var _hoisted_3 = {
-  "class": "p-inputgroup mb-3"
+var _hoisted_2 = {
+  "class": "p-inputgroup mb-2"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "p-inputgroup-addon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "pi pi-search"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "アカウント名(@不要)", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = {
+  "class": "p-inputgroup mb-2"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "p-inputgroup-addon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "pi pi-user"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
+  "class": "flex justify-content-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("form", {
     action: "",
     onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return _ctx.$parent.analyzeByTwitter();
-    }, ["prevent"]))
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Chips"], {
+    }, ["prevent"])),
+    "class": "mb-3"
+  }, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Chips"], {
     modelValue: _ctx.$parent.searchWords,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return _ctx.$parent.searchWords = $event;
     }),
     "class": "p-chips",
     addOnBlur: true,
-    allowDuplicate: false
+    allowDuplicate: false,
+    placeholder: "Enterで追加"
   }, null, 8
   /* PROPS */
-  , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputText"], {
-    placeholder: "Your Account Id",
-    "class": "p-inputtext-lg",
+  , ["modelValue"])]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputText"], {
+    placeholder: "Username",
+    "class": "p-inputtext",
     modelValue: _ctx.$parent.username,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return _ctx.$parent.username = $event;
@@ -23391,7 +23420,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     required: ""
   }, null, 8
   /* PROPS */
-  , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
+  , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
     label: "解析する",
     type: "submit"
   })])], 32
@@ -23415,20 +23444,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex mb-3"
+  "class": "flex"
 };
 var _hoisted_2 = {
-  "class": "flex-0 flex align-items-center justify-content-center px-2"
+  "class": "flex-0 px-2 flex align-items-center"
 };
 var _hoisted_3 = ["src"];
 var _hoisted_4 = {
-  "class": "flex-0 flex align-items-center justify-content-center px-2"
+  "class": "flex-1 flex align-items-center px-2"
 };
 var _hoisted_5 = {
-  "class": "flex-0 flex align-items-center justify-content-center px-2"
-};
-var _hoisted_6 = {
-  "class": "flex align-items-center"
+  "class": "flex align-items-center flex-wrap"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _directive_badge = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDirective)("badge");
@@ -23437,19 +23463,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     header: "解析結果"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Skeleton shape=\"square\" class=\"h-3rem w-3rem\" /> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
         alt: "プロフィール画像",
-        src: _ctx.$parent.userData.profile_image_url
+        src: _ctx.$parent.userData.profile_image_url,
+        "class": "h-3rem w-3rem"
       }, null, 8
       /* PROPS */
-      , _hoisted_3)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$parent.username), 1
+      , _hoisted_3)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, "@" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$parent.username), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$parent.userData.name), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$parent.userData.name), 1
       /* TEXT */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$parent.searchWords, function (word, index) {
+      )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Divider"], {
+        "class": "p-divider"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$parent.searchWords, function (word, index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
           key: index,
-          "class": "px-2"
+          "class": "p-2"
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Chip"], {
           label: word,
           "class": "px-2"
@@ -25161,6 +25190,105 @@ var PrimeVue = {
 
 /***/ }),
 
+/***/ "./node_modules/primevue/divider/divider.esm.js":
+/*!******************************************************!*\
+  !*** ./node_modules/primevue/divider/divider.esm.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var script = {
+    name: 'Divider',
+    props: {
+        align: {
+            type: String,
+            default: null
+        },
+        layout: {
+            type: String,
+            default: 'horizontal'
+        },
+        type: {
+            type: String,
+            default: 'solid'
+        }
+    },
+    computed: {
+        containerClass() {
+            return ['p-divider p-component', 'p-divider-' + this.layout, 'p-divider-' + this.type,
+                {'p-divider-left': this.layout === 'horizontal' && (!this.align || this.align === 'left')},
+                {'p-divider-center': this.layout === 'horizontal' && this.align === 'center'},
+                {'p-divider-right': this.layout === 'horizontal' && this.align === 'right'},
+                {'p-divider-top': this.layout === 'vertical' && (this.align === 'top')},
+                {'p-divider-center': this.layout === 'vertical' && (!this.align || this.align === 'center')},
+                {'p-divider-bottom': this.layout === 'vertical' && this.align === 'bottom'}
+            ];
+        }
+    }
+};
+
+const _hoisted_1 = {
+  key: 0,
+  class: "p-divider-content"
+};
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+    class: $options.containerClass,
+    role: "separator"
+  }, [
+    (_ctx.$slots.default)
+      ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")
+        ]))
+      : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", true)
+  ], 2))
+}
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = "\n.p-divider-horizontal {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    position: relative;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.p-divider-horizontal:before {\n    position: absolute;\n    display: block;\n    top: 50%;\n    left: 0;\n    width: 100%;\n    content: \"\";\n}\n.p-divider-horizontal.p-divider-left {\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n}\n.p-divider-horizontal.p-divider-right {\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n}\n.p-divider-horizontal.p-divider-center {\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.p-divider-content {\n    z-index: 1;\n}\n.p-divider-vertical {\n    min-height: 100%;\n    margin: 0 1rem;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    position: relative;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.p-divider-vertical:before {\n    position: absolute;\n    display: block;\n    top: 0;\n    left: 50%;\n    height: 100%;\n    content: \"\";\n}\n.p-divider-vertical.p-divider-top {\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start;\n}\n.p-divider-vertical.p-divider-center {\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.p-divider-vertical.p-divider-bottom {\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n}\n.p-divider-solid.p-divider-horizontal:before {\n    border-top-style: solid;\n}\n.p-divider-solid.p-divider-vertical:before {\n    border-left-style: solid;\n}\n.p-divider-dashed.p-divider-horizontal:before {\n    border-top-style: dashed;\n}\n.p-divider-dashed.p-divider-vertical:before {\n    border-left-style: dashed;\n}\n.p-divider-dotted.p-divider-horizontal:before {\n    border-top-style: dotted;\n}\n.p-divider-dotted.p-divider-horizontal:before {\n    border-left-style: dotted;\n}\n";
+styleInject(css_248z);
+
+script.render = render;
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (script);
+
+
+/***/ }),
+
 /***/ "./node_modules/primevue/inputtext/inputtext.esm.js":
 /*!**********************************************************!*\
   !*** ./node_modules/primevue/inputtext/inputtext.esm.js ***!
@@ -25451,6 +25579,108 @@ const Ripple = {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ripple);
+
+
+/***/ }),
+
+/***/ "./node_modules/primevue/skeleton/skeleton.esm.js":
+/*!********************************************************!*\
+  !*** ./node_modules/primevue/skeleton/skeleton.esm.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var script = {
+    name: 'Skeleton',
+    props: {
+        shape: {
+            type: String,
+            default: 'rectangle'
+        },
+        size: {
+            type: String,
+            default: null
+        },
+        width: {
+            type: String,
+            default: '100%'
+        },
+        height: {
+            type: String,
+            default: '1rem'
+        },
+        borderRadius: {
+            type: String,
+            default: null
+        },
+        animation: {
+            type: String,
+            default: 'wave'
+        }
+    },
+    computed: {
+        containerClass() {
+            return ['p-skeleton p-component', {
+                'p-skeleton-circle': this.shape === 'circle',
+                'p-skeleton-none': this.animation === 'none'
+            }];
+        },
+        containerStyle() {
+            if (this.size)
+                return {width: this.size, height: this.size, borderRadius: this.borderRadius};
+            else
+                return {width: this.width, height: this.height, borderRadius: this.borderRadius};
+        }
+    }
+};
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+    style: $options.containerStyle,
+    class: $options.containerClass
+  }, null, 6))
+}
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = "\n.p-skeleton {\n    position: relative;\n    overflow: hidden;\n}\n.p-skeleton::after {\n    content: \"\";\n    -webkit-animation: p-skeleton-animation 1.2s infinite;\n            animation: p-skeleton-animation 1.2s infinite;\n    height: 100%;\n    left: 0;\n    position: absolute;\n    right: 0;\n    top: 0;\n    -webkit-transform: translateX(-100%);\n            transform: translateX(-100%);\n    z-index: 1;\n}\n.p-skeleton.p-skeleton-circle {\n    border-radius: 50%;\n}\n.p-skeleton-none::after {\n   -webkit-animation: none;\n           animation: none;\n}\n@-webkit-keyframes p-skeleton-animation {\nfrom {\n        -webkit-transform: translateX(-100%);\n                transform: translateX(-100%);\n}\nto {\n        -webkit-transform: translateX(100%);\n                transform: translateX(100%);\n}\n}\n@keyframes p-skeleton-animation {\nfrom {\n        -webkit-transform: translateX(-100%);\n                transform: translateX(-100%);\n}\nto {\n        -webkit-transform: translateX(100%);\n                transform: translateX(100%);\n}\n}\n";
+styleInject(css_248z);
+
+script.render = render;
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (script);
 
 
 /***/ }),
