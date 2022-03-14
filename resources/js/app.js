@@ -18,8 +18,6 @@ import "primeflex/primeflex.css" // primeflex
 // fontawsome
 import "@fortawesome/fontawesome-free/js/fontawesome";
 import "@fortawesome/fontawesome-free/js/brands";
-import "@fortawesome/fontawesome-free/js/solid";
-import "@fortawesome/fontawesome-free/js/regular";
 
 import { createApp } from 'vue';
 
@@ -29,7 +27,8 @@ const app = createApp({
     }
 })
 
-app.mount('#app');
 app.use(PrimeVue);
 app.use(VueAxios, axios)
 app.directive('badge', BadgeDirective);
+
+app.mount('#app');

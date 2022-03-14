@@ -1,5 +1,3 @@
-<script setup>
-</script>
 <template>
   <div>
     <TwitterFormComponent></TwitterFormComponent>
@@ -13,38 +11,49 @@ import TwitterResultComponent from "./TwitterResultComponent.vue";
 export default {
   data() {
     return {
-      username: "mcgardman",
-      searchWords: ["…", "。。", "、、", "・・", "明日"],
+      username: "",
+      searchWords: ["…", "。。", "、、", "・・"],
       userData: {
-        name: "a",
+        name: "",
         profile_image_url: "",
         id: "",
+        protected: false,
+        username: "",
       },
       tweets: [],
     };
   },
   methods: {
     analyzeByTwitter() {
-      this.getId().then(() => {
-        console.log(this.userData);
-        this.getTweets().then(() => {
-          console.log(this.tweets);
-        });
-      });
-    },
-    async getId() {
-      await this.axios
-        .get("/api/twitter/profile/" + this.username)
-        .then((response) => {
-          this.userData = response.data;
-        });
+      this.getTweets().then(() => {});
     },
     async getTweets() {
       await this.axios
-        .get("/api/twitter/tweets/" + this.userData.id)
+        .get("/api/twitter/" + this.username)
         .then((response) => {
-          this.tweets = response.data;
+          console.log(response.data);
+          this.tweets = response.data.tweets;
+          this.userData = response.data.userData;
+        })
+        .catch(function (error) {});
+    },
+    // 正規表現でマッチした回数を数えるメソッド
+    countReg(text, reg) {
+      return (text.match(new RegExp(reg, "g")) || []).length;
+    },
+  },
+  computed: {
+    counts() {
+      let counts = {};
+      this.searchWords.forEach((element, index) => {
+        counts[element] = 0;
+      });
+      this.tweets.forEach((tweet, index) => {
+        this.searchWords.forEach((element, index) => {
+          counts[element] += this.countReg(tweet.text, element);
         });
+      });
+      return counts;
     },
   },
   components: {
