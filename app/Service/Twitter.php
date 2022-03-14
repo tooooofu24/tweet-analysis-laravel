@@ -6,42 +6,53 @@ use Illuminate\Support\Facades\Http;
 
 class Twitter
 {
-    public $isValid = false;
-    public $response;
+    protected $userData;
+    protected $tweets = [];
+    protected $username;
 
-    public function getProfile($username)
+    function __construct($username)
+    {
+        $this->username = $username;
+    }
+
+    public function getTweets()
+    {
+        $this->searchUserData();
+        $this->searchTweets();
+        return [
+            'tweets' => $this->tweets,
+            'userData' => $this->userData
+        ];
+    }
+
+    protected function searchUserData()
     {
         $response = Http::withToken(env('TWITTER_API_TOKEN'))
             ->get(
                 'https://api.twitter.com/2/users/by',
                 [
-                    'usernames' => $username,
+                    'usernames' => $this->username,
                     'user.fields' => 'profile_image_url,protected'
                 ]
             );
         if (isset($response->object()->errors)) {
-            return;
+            abort(404);
         }
-        $this->isValid = true;
-        $this->response = $response->object()->data[0];
-        return;
+        $this->userData = $response->object()->data[0];
     }
 
-    public function getTweets($id)
+    protected function searchTweets()
     {
         $response = Http::withToken(env('TWITTER_API_TOKEN'))
             ->get(
-                "https://api.twitter.com/2/users/$id/tweets",
+                "https://api.twitter.com/2/users/{$this->userData->id}/tweets",
                 [
                     'max_results' => 20
                 ]
             );
-        dd($response->object());
         if (isset($response->object()->errors)) {
-            return;
+            abort(404);
         }
-        $this->isValid = true;
-        $this->response = $response->object()->data;
-        return;
+        $this->tweets = $response->object()->data;
     }
 }

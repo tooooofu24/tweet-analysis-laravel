@@ -15,24 +15,35 @@ export default {
     return {
       username: "mcgardman",
       searchWords: ["…", "。。", "、、", "・・", "明日"],
-      userData: {},
+      userData: {
+        name: "a",
+        profile_image_url: "",
+        id: "",
+      },
       tweets: [],
     };
   },
   methods: {
     analyzeByTwitter() {
-      this.axios
+      this.getId().then(() => {
+        console.log(this.userData);
+        this.getTweets().then(() => {
+          console.log(this.tweets);
+        });
+      });
+    },
+    async getId() {
+      await this.axios
         .get("/api/twitter/profile/" + this.username)
         .then((response) => {
-          console.log(response.data);
+          this.userData = response.data;
         });
     },
-    getId() {
-      this.axios
-        .get("/api/twitter/profile/" + this.username)
+    async getTweets() {
+      await this.axios
+        .get("/api/twitter/tweets/" + this.userData.id)
         .then((response) => {
-          console.log(response.data);
-          this.userData = response.data;
+          this.tweets = response.data;
         });
     },
   },

@@ -19,5 +19,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('twitter/profile/{username}', [ApiController::class, 'getProfile']);
-Route::get('twitter/tweets/{id}', [ApiController::class, 'getTweets']);
+Route::get('twitter/{username}', ApiController::class);

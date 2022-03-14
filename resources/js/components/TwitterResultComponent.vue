@@ -7,10 +7,10 @@ import Chip from "primevue/chip";
   <Panel header="解析結果">
     <div class="flex">
       <div class="flex-0 flex align-items-center justify-content-center px-2">
-        <img alt="プロフィール画像" src="" />
+        <img alt="プロフィール画像" :src="$parent.userData.profile_image_url" />
       </div>
       <div class="flex-0 flex align-items-center justify-content-center px-2">
-        ユザーネー
+        {{ $parent.userData.name }}
       </div>
       <div class="flex-1 flex align-items-center justify-content-center">
         <span class="px-2"
