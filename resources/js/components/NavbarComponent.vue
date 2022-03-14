@@ -15,8 +15,8 @@ import Button from "primevue/button";
     "
   >
     <div>
-      <i class="pi pi-bolt mr-2"></i>
-      <span class="font-bold">SNS解析ツール</span>
+      <i class="fa-solid fa-comment-dots mr-2"></i>
+      <span class="font-bold">SNSテキスト解析ツール</span>
     </div>
     <div>
       <Button icon="pi pi-bars" class="p-button-text text-white" />
