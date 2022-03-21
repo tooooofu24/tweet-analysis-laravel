@@ -2,6 +2,7 @@
 import InputText from "primevue/inputtext";
 import Button from "primevue/button";
 import Chips from "primevue/chips";
+import Calendar from "primevue/calendar";
 </script>
 <template>
   <form action="" @submit.prevent="$parent.analyzeByTwitter()" class="mb-3">
@@ -28,6 +29,23 @@ import Chips from "primevue/chips";
         class="p-inputtext"
         v-model="$parent.username"
         required
+      />
+    </div>
+    <label>検索期間</label>
+    <div class="p-inputgroup mb-2">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-calendar"></i>
+      </span>
+      <Calendar
+        v-model="$parent.start_time"
+        dateFormat="yy-mm-dd"
+        :maxDate="$parent.end_time"
+      />
+      <span class="p-inputgroup-addon">~</span>
+      <Calendar
+        v-model="$parent.end_time"
+        :minDate="$parent.start_time"
+        dateFormat="yy-mm-dd"
       />
     </div>
     <div class="flex justify-content-center">

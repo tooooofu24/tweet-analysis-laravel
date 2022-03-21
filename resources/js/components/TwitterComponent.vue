@@ -7,11 +7,14 @@
 <script>
 import TwitterFormComponent from "./TwitterFormComponent.vue";
 import TwitterResultComponent from "./TwitterResultComponent.vue";
+import dateFormat, { masks } from "dateformat";
 
 export default {
   data() {
     return {
       username: "ms2n_xxx",
+      start_time: null,
+      end_time: null,
       searchWords: ["…", "。。", "、、", "・・"],
       userData: {
         name: "",
@@ -29,7 +32,18 @@ export default {
     },
     async getTweets() {
       await this.axios
-        .get("/api/twitter/" + this.username)
+        .get("/api/twitter/" + this.username, {
+          params: {
+            start_time:
+              this.start_time instanceof Date
+                ? dateFormat(this.start_time, "isoDate")
+                : null,
+            end_time:
+              this.end_time instanceof Date
+                ? dateFormat(this.end_time, "isoDate")
+                : null,
+          },
+        })
         .then((response) => {
           console.log(response.data);
           this.tweets = response.data.tweets;
