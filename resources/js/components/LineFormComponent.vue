@@ -2,6 +2,7 @@
 import Button from "primevue/button";
 import Chips from "primevue/chips";
 import FileUpload from "primevue/fileupload";
+import Calendar from "primevue/calendar";
 </script>
 <template>
   <form action="" @submit.prevent="submit" class="mb-3">
@@ -18,6 +19,7 @@ import FileUpload from "primevue/fileupload";
         placeholder="Enterで追加"
       />
     </div>
+    <label>トーク履歴</label>
     <div class="mb-2">
       <FileUpload
         @select="readfile"
@@ -32,6 +34,23 @@ import FileUpload from "primevue/fileupload";
           <p class="m-0 text-center">ドラッグ&ドロップでファイルを選択</p>
         </template>
       </FileUpload>
+    </div>
+    <label>検索期間</label>
+    <div class="p-inputgroup mb-2">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-calendar"></i>
+      </span>
+      <Calendar
+        v-model="$parent.start_time"
+        dateFormat="yy-mm-dd"
+        :maxDate="$parent.end_time"
+      />
+      <span class="p-inputgroup-addon">~</span>
+      <Calendar
+        v-model="$parent.end_time"
+        :minDate="$parent.start_time"
+        dateFormat="yy-mm-dd"
+      />
     </div>
     <div class="flex justify-content-center">
       <Button label="解析する" type="submit" />

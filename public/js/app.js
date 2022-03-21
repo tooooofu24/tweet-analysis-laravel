@@ -24723,29 +24723,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      start_time: null,
+      end_time: null,
       searchWords: ["…", "。。", "、、", "・・"],
       text: ""
     };
   },
   methods: {
+    // 単語が何回出たかカウントするメソッド
     countReg: function countReg(text, reg) {
       return (text.match(new RegExp(reg, "g")) || []).length;
     }
   },
   computed: {
     textData: function textData() {
+      // テキストファイルの内容を配列にする
       var result = this.text.split("\r\n");
       var date = "";
       var response = {};
       result.forEach(function (element, index) {
         if (new RegExp("^[0-9]{4}/[0-9]{2}/[0-9]{2}(.)").test(element)) {
-          // 日付
+          // 日付の行の場合
           date = element.slice(0, 10);
           response[date] = {};
         }
 
         if (new RegExp("^[0-9]{2}:[0-9]{2}").test(element)) {
-          // メッセージ
+          // メッセージの行の場合
           var data = element.split("\t");
           var time = data[0];
           var name = data[1];
@@ -24758,7 +24762,21 @@ __webpack_require__.r(__webpack_exports__);
           }
         }
       });
-      return response;
+      var filteredResponse = {};
+
+      for (var index in response) {
+        if (this.start_time instanceof Date && new Date(index) < this.start_time) {
+          continue;
+        }
+
+        if (this.end_time instanceof Date && new Date(index) > this.end_time) {
+          continue;
+        }
+
+        filteredResponse[index] = response[index];
+      }
+
+      return filteredResponse;
     },
     counts: function counts() {
       var _this = this;
@@ -24811,6 +24829,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primevue_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primevue/button */ "./node_modules/primevue/button/button.esm.js");
 /* harmony import */ var primevue_chips__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primevue/chips */ "./node_modules/primevue/chips/chips.esm.js");
 /* harmony import */ var primevue_fileupload__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primevue/fileupload */ "./node_modules/primevue/fileupload/fileupload.esm.js");
+/* harmony import */ var primevue_calendar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primevue/calendar */ "./node_modules/primevue/calendar/calendar.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -24852,6 +24871,7 @@ var __default__ = {
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/Object.assign(__default__, {
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
@@ -24859,7 +24879,8 @@ var __default__ = {
     var __returned__ = {
       Button: primevue_button__WEBPACK_IMPORTED_MODULE_1__["default"],
       Chips: primevue_chips__WEBPACK_IMPORTED_MODULE_2__["default"],
-      FileUpload: primevue_fileupload__WEBPACK_IMPORTED_MODULE_3__["default"]
+      FileUpload: primevue_fileupload__WEBPACK_IMPORTED_MODULE_3__["default"],
+      Calendar: primevue_calendar__WEBPACK_IMPORTED_MODULE_4__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -25246,23 +25267,49 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_4 = {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "トーク履歴", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = {
   "class": "mb-2"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "m-0 text-center"
 }, "ドラッグ&ドロップでファイルを選択", -1
 /* HOISTED */
 );
 
-var _hoisted_6 = {
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, "検索期間", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
+  "class": "p-inputgroup mb-2"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "p-inputgroup-addon"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "pi pi-calendar"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "p-inputgroup-addon"
+}, "~", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
   "class": "flex justify-content-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("form", {
     action: "",
-    onSubmit: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return _ctx.submit && _ctx.submit.apply(_ctx, arguments);
     }, ["prevent"])),
     "class": "mb-3"
@@ -25277,7 +25324,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Enterで追加"
   }, null, 8
   /* PROPS */
-  , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FileUpload"], {
+  , ["modelValue"])]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FileUpload"], {
     onSelect: $options.readfile,
     name: "file[]",
     mode: "basic",
@@ -25287,14 +25334,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     cancelLabel: "キャンセル"
   }, {
     empty: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_5];
+      return [_hoisted_6];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["onSelect"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
+  , ["onSelect"])]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Calendar"], {
+    modelValue: _ctx.$parent.start_time,
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return _ctx.$parent.start_time = $event;
+    }),
+    dateFormat: "yy-mm-dd",
+    maxDate: _ctx.$parent.end_time
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "maxDate"]), _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Calendar"], {
+    modelValue: _ctx.$parent.end_time,
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.$parent.end_time = $event;
+    }),
+    minDate: _ctx.$parent.start_time,
+    dateFormat: "yy-mm-dd"
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "minDate"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Button"], {
     label: "解析する",
     type: "submit"
   })])], 32
