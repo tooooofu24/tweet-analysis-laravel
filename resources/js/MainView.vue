@@ -29,8 +29,8 @@ import TabPanel from "primevue/tabpanel";
 </template>
 <script>
 import NavbarComponent from "./components/NavbarComponent.vue";
-import LineComponent from "./components/LineComponent.vue";
-import TwitterComponent from "./components/TwitterComponent.vue";
+import LineComponent from "./components/Line/LineComponent.vue";
+import TwitterComponent from "./components/Twitter/TwitterComponent.vue";
 export default {};
 </script>
 

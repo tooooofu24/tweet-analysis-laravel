@@ -5,8 +5,8 @@
   </div>
 </template>
 <script>
-import LineFormComponent from "./LineFormComponent.vue";
-import LineResultComponent from "./LineResultComponent.vue";
+import LineFormComponent from "../Line/LineFormComponent.vue";
+import LineResultComponent from "./result/LineResultComponent.vue";
 
 export default {
   data() {
@@ -15,6 +15,7 @@ export default {
       end_time: null,
       searchWords: ["…", "。。", "、、", "・・"],
       text: "",
+      showResult: false,
     };
   },
   methods: {

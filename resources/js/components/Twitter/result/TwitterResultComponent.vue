@@ -36,3 +36,10 @@ import Skeleton from "primevue/skeleton";
     </div>
   </Panel>
 </template>
+<script>
+export default {
+  data() {
+    return {};
+  },
+};
+</script>

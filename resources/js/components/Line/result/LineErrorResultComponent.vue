@@ -2,7 +2,6 @@
 import Panel from "primevue/panel";
 import Chip from "primevue/chip";
 import Badge from "primevue/badge";
-import Divider from "primevue/divider";
 import Skeleton from "primevue/skeleton";
 </script>
 

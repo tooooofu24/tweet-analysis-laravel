@@ -5,8 +5,8 @@
   </div>
 </template>
 <script>
-import TwitterFormComponent from "./TwitterFormComponent.vue";
-import TwitterResultComponent from "./TwitterResultComponent.vue";
+import TwitterFormComponent from "../Twitter/TwitterFormComponent.vue";
+import TwitterResultComponent from "./result/TwitterResultComponent.vue";
 import dateFormat, { masks } from "dateformat";
 
 export default {
