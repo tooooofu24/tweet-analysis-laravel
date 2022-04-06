@@ -25882,7 +25882,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     key: 1
   })) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Panel"], {
     key: 2,
-    header: "解析結果"
+    header: "\u89E3\u6790\u7D50\u679C (\u691C\u7D22\u5BFE\u8C61\u30C4\u30A4\u30FC\u30C8\uFF1A".concat(_ctx.$parent.tweets.length, "\u4EF6)")
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
@@ -25914,7 +25914,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }));
+  }, 8
+  /* PROPS */
+  , ["header"]));
 }
 
 /***/ }),

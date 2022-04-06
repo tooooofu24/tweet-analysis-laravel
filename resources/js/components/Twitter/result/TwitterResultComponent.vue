@@ -14,7 +14,10 @@ import Skeleton from "primevue/skeleton";
     v-else-if="$parent.hasError"
   ></TwitterErrorResultComponent>
 
-  <Panel header="解析結果" v-else>
+  <Panel
+    :header="`解析結果 (検索対象ツイート：${$parent.tweets.length}件)`"
+    v-else
+  >
     <div class="flex">
       <div class="flex-0 px-2 flex align-items-center">
         <img
