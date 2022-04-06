@@ -25129,12 +25129,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primevue_avatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primevue/avatar */ "./node_modules/primevue/avatar/avatar.esm.js");
 /* harmony import */ var primevue_message__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primevue/message */ "./node_modules/primevue/message/message.esm.js");
 /* harmony import */ var primevue_badge__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primevue/badge */ "./node_modules/primevue/badge/badge.esm.js");
+var __default__ = {
+  props: ["username"]
+};
 
 
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/Object.assign(__default__, {
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
@@ -25151,7 +25154,7 @@ __webpack_require__.r(__webpack_exports__);
     });
     return __returned__;
   }
-});
+}));
 
 /***/ }),
 
@@ -25732,12 +25735,9 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   "class": "text-danger"
 };
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_5 = {
   "class": "mb-1"
-}, "@username", -1
-/* HOISTED */
-);
+};
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("エラーが発生しました。検索したユーザーが公開アカウントであることを確認してもう一度お試しください。");
 
@@ -25749,7 +25749,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Avatar"], {
         icon: "pi pi-user",
         "class": "h-3rem w-3rem"
-      })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Badge"], {
+      })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, "@" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.username), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Badge"], {
         value: "ユーザーが見つかりません",
         severity: "danger"
       })])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Divider"], {
@@ -25879,8 +25881,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.$parent.isLoding ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["TwitterLoadingResultComponent"], {
     key: 0
   })) : _ctx.$parent.hasError ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["TwitterErrorResultComponent"], {
-    key: 1
-  })) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Panel"], {
+    key: 1,
+    username: _ctx.$parent.username
+  }, null, 8
+  /* PROPS */
+  , ["username"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Panel"], {
     key: 2,
     header: "\u89E3\u6790\u7D50\u679C (\u691C\u7D22\u5BFE\u8C61\u30C4\u30A4\u30FC\u30C8\uFF1A".concat(_ctx.$parent.tweets.length, "\u4EF6)")
   }, {

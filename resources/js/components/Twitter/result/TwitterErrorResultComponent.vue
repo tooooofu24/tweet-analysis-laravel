@@ -14,7 +14,7 @@ import Badge from "primevue/badge";
       </div>
       <div class="flex-1 flex align-items-center px-2">
         <div class="text-danger">
-          <div class="mb-1">@username</div>
+          <div class="mb-1">@{{ username }}</div>
           <div>
             <Badge value="ユーザーが見つかりません" severity="danger"></Badge>
           </div>
@@ -29,3 +29,9 @@ import Badge from "primevue/badge";
     </div>
   </Panel>
 </template>
+<script>
+export default {
+  props: ["username"],
+};
+</script>
+

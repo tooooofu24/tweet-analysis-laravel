@@ -12,6 +12,7 @@ import Skeleton from "primevue/skeleton";
   ></TwitterLoadingResultComponent>
   <TwitterErrorResultComponent
     v-else-if="$parent.hasError"
+    :username="$parent.username"
   ></TwitterErrorResultComponent>
 
   <Panel
