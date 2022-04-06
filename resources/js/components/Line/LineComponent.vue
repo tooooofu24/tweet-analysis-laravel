@@ -1,7 +1,7 @@
 <template>
   <div>
     <LineFormComponent></LineFormComponent>
-    <LineResultComponent></LineResultComponent>
+    <LineResultComponent v-if="showResult"></LineResultComponent>
   </div>
 </template>
 <script>
