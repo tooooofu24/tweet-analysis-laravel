@@ -13,7 +13,7 @@ class ApiController extends Controller
     public function __invoke($username, Request $request)
     {
         $twitter = new Twitter($username);
-        return $twitter->getTweets(
+        return $twitter->getAllTweets(
             $request->start_time ? new Carbon($request->start_time) : null,
             $request->end_time ? new Carbon($request->end_time) : null,
         );
