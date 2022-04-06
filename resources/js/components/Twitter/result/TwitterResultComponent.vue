@@ -7,10 +7,16 @@ import Skeleton from "primevue/skeleton";
 </script>
 
 <template>
-  <Panel header="解析結果">
+  <TwitterLoadingResultComponent
+    v-if="$parent.isLoding"
+  ></TwitterLoadingResultComponent>
+  <TwitterErrorResultComponent
+    v-else-if="$parent.hasError"
+  ></TwitterErrorResultComponent>
+
+  <Panel header="解析結果" v-else>
     <div class="flex">
       <div class="flex-0 px-2 flex align-items-center">
-        <!-- <Skeleton shape="square" class="h-3rem w-3rem" /> -->
         <img
           alt="プロフィール画像"
           :src="$parent.userData.profile_image_url"
@@ -37,6 +43,9 @@ import Skeleton from "primevue/skeleton";
   </Panel>
 </template>
 <script>
+import TwitterLoadingResultComponent from "./TwitterLoadingResultComponent.vue";
+import TwitterErrorResultComponent from "./TwitterErrorResultComponent.vue";
+
 export default {
   data() {
     return {};

@@ -1,7 +1,7 @@
 <template>
   <div>
     <TwitterFormComponent></TwitterFormComponent>
-    <TwitterResultComponent></TwitterResultComponent>
+    <TwitterResultComponent v-if="showResult"></TwitterResultComponent>
   </div>
 </template>
 <script>
@@ -24,10 +24,16 @@ export default {
         username: "",
       },
       tweets: [],
+      isLoding: false,
+      showResult: false,
+      hasError: false,
     };
   },
   methods: {
     analyzeByTwitter() {
+      this.hasError = false;
+      this.isLoding = true;
+      this.showResult = true;
       this.getTweets().then(() => {});
     },
     async getTweets() {
@@ -45,11 +51,15 @@ export default {
           },
         })
         .then((response) => {
-          console.log(response.data);
           this.tweets = response.data.tweets;
           this.userData = response.data.userData;
         })
-        .catch(function (error) {});
+        .catch((error) => {
+          this.hasError = true;
+        })
+        .then(() => {
+          this.isLoding = false;
+        });
     },
     // 正規表現でマッチした回数を数えるメソッド
     countReg(text, reg) {
